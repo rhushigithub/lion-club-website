@@ -1,0 +1,223 @@
+/* Reset & base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body, html, #root, .App {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #eef5ff;
+  color: #0c2340;
+  scroll-behavior: smooth;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #004080;
+  padding: 12px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.logo { font-size: 1.5rem; font-weight: bold; }
+.menu-toggle { display: none; }
+.menu-icon { display: none; cursor: pointer; font-size: 1.8rem; }
+.nav-links { list-style: none; display: flex; gap: 20px; }
+.nav-links a {
+  color: white; text-decoration: none; font-weight: 600;
+  padding: 5px 8px; border-radius: 4px;
+}
+.nav-links a:hover { background: #00264d; }
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+  .menu-icon { display: block; color: white; }
+  .nav-links {
+    position: fixed; top: 50px; right: 0; width: 200px;
+    background: #004080; flex-direction: column; transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+  .menu-toggle:checked + .menu-icon + .nav-links {
+    transform: translateX(0);
+  }
+  .nav-links li { margin: 15px 0; }
+}
+
+/* Hero (Home) */
+.hero-section {
+  height: 90vh;
+  background: 
+    linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+    url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1280&q=80')
+    center/cover no-repeat;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 20px;
+}
+.hero-content h1 {
+  font-size: 3.2rem; color: #fff; margin-bottom: 10px;
+  text-shadow: 2px 2px 6px #000;
+}
+.slogan, .mission {
+  color: #e0e7ff; font-style: italic; margin: 8px 0;
+}
+/* Home page Join button */
+.join-btn {
+  margin-top: 20px; 
+  padding: 12px 28px;
+  background: #ffcc00; 
+  color: #004080; 
+  font-weight: 700;
+  border: none; 
+  border-radius: 30px; 
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: background 0.3s;
+  font-size: 1.2rem;
+}
+
+.join-btn:hover {
+  background: #e6b800;
+}
+
+
+/* Sections (non-Home) */
+.about-section,
+.members-section,
+.contact-section {
+  background: white;
+  padding: 100px 20px;  /* decreased from 220px */
+  max-width: 900px;
+  margin: 40px auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,64,128,0.1);
+  line-height: 1.6;
+  color: #003366;
+}
+
+.about-section h2,
+.members-section h2,
+.contact-section h2 {
+  color: #004080; margin-bottom: 20px; font-size: 2rem;
+  font-weight: 700;
+}
+
+/* Members Search */
+.search-bar {
+  display: block;
+  margin: 20px auto 30px auto; /* more spacing on top & bottom */
+  padding: 12px 20px;
+  width: 100%;
+  max-width: 420px;
+  font-size: 1.1rem;
+  border: 2px solid #004080;
+  border-radius: 30px;
+  outline: none;
+  box-shadow: 0 2px 5px rgba(0, 64, 128, 0.15);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.search-bar:focus {
+  border-color: #0073e6;
+  box-shadow: 0 4px 12px rgba(0, 115, 230, 0.4);
+  background-color: #f0f8ff;
+}
+
+.member-list {
+  list-style: none;
+  padding: 0;
+  max-width: 420px;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 64, 128, 0.1);
+  background: #f9fbff;
+}
+
+.member-list li {
+  padding: 12px 20px;
+  border-bottom: 1px solid #d9e2f3;
+  font-weight: 600;
+  color: #003366;
+  cursor: default;
+  transition: background-color 0.3s;
+}
+
+.member-list li:hover {
+  background-color: #e6f0ff;
+}
+
+.member-list li:last-child {
+  border-bottom: none;
+}
+
+.search-note {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  font-size: 1rem;
+  margin-top: 15px;
+}
+/* Contact Form Styles */
+.contact-form {
+  max-width: 420px;
+  margin: 20px auto 30px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px 18px;
+  border: 2px solid #004080;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-family: 'Segoe UI', sans-serif;
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #0073e6;
+  box-shadow: 0 0 8px rgba(0, 115, 230, 0.5);
+  background-color: #f0f8ff;
+}
+
+.contact-form button {
+  padding: 12px 0;
+  background-color: #0073e6;
+  color: white;
+  font-weight: 700;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+  background-color: #005bb5;
+}
+
+
+
+/* Footer */
+.footer {
+  background: #004080; color: white;
+  text-align: center; padding: 20px 0;
+  margin-top: 40px; font-weight: 600;
+}
+
+/* Mobile tweaks */
+@media (max-width: 600px) {
+  .hero-content h1 { font-size: 2.4rem; }
+  .join-btn { width: 90%; }
+  .about-section,
+  .members-section,
+  .contact-section {
+    padding: 80px 15px; margin: 20px 10px;
+  }
+}
